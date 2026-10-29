@@ -4,17 +4,23 @@ public class Program
 {
 	public static void Main()
 	{
-		Room entrance = new Room("Entrance", "A dry stone chamber with daylight spilling through the doorway.");
 		Room gallery = new Room("Gallery", "A long gallery lined with faded banners.");
 		Room alias = gallery;
+		Room clone = new Room("Gallery", "A long gallery lined with faded banners.");
 
-		alias.Description = "A long gallery with a freshly opened skylight.";
-
-		Console.WriteLine($"{entrance.Name}: {entrance.Description}");
 		Console.WriteLine($"{gallery.Name}: {gallery.Description}");
 		Console.WriteLine($"{alias.Name}: {alias.Description}");
+		Console.WriteLine($"{clone.Name}: {clone.Description}");
 		Console.WriteLine();
-		Console.WriteLine($"Entrance and Gallery are the same: {entrance == gallery}");
 		Console.WriteLine($"Alias and Gallery are the same: {alias == gallery}");
+		Console.WriteLine($"Clone and Gallery are the same: {clone == gallery}");
+		Console.WriteLine();
+
+		alias.Description = "Framed pictures hang from all the walls.";
+		clone.Description = "A room filled with framed pictures.";
+
+		Console.WriteLine($"{gallery.Name}: {gallery.Description}");
+		Console.WriteLine($"{alias.Name}: {alias.Description}");
+		Console.WriteLine($"{clone.Name}: {clone.Description}");
 	}
 }
